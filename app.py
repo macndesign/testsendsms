@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def send_sms():
-
     account_sid = 'ACfbc75add82a44565aea6df2b3584fdf5'
     auth_token  = '05ed052bf32c49a1bc1305743f2b5ab9'
     client      = rest.Client(account_sid, auth_token)
