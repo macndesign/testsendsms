@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, request
 from telapi import rest
 
 app = Flask(__name__)
@@ -12,15 +12,15 @@ def send_sms():
     account     = client.accounts[client.account_sid]
 
     sms_message = account.sms_messages.create(
-        from_number = '+558587054624',
-        to_number   = '+558587054624',
-        body = 'SMS message sent from the TelAPI Python helper!',
+        from_number = request.args.get('From', None),
+        to_number = request.args.get('To', None),
+        body = request.args.get('Body', None),
     )
 
     if sms_message:
         return "SMS SID: %s" % sms_message.sid
 
-    return 'Send SMS!'
+    return 'Test Send SMS'
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
