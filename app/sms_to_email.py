@@ -7,8 +7,8 @@ app = Flask(__name__)
 @app.route('/')
 def send_sms():
     # Pegar os dados no dashboard da TelAPI
-    account_sid = '{sid}'
-    auth_token  = '{token}'
+    account_sid = 'ACfbc75add82a44565aea6df2b3584fdf5'
+    auth_token  = '05ed052bf32c49a1bc1305743f2b5ab9'
     client      = rest.Client(account_sid, auth_token)
     account     = client.accounts[client.account_sid]
 
